@@ -8,7 +8,18 @@ function getDefaultState() {
   return {
     params:       DEFAULT_PARAMS,
     consumption:  DEFAULT_CONSUMPTION,
-    stockInitial: Object.fromEntries(MATERIALS.map(m => [m.id, 0])),
+    stockInitial: {
+      algodon_blanco: 56655,
+      algodon_negro:  28824,
+      melange_5:      9055,
+      melange_25:     6090,
+      lycra_blanca:   0,
+      lycra_negra:    0,
+      goma_blanca:    0,
+      goma_negra:     0,
+      nylon_blanco:   0,
+      nylon_negro:    0,
+    },
     purchases:    DEFAULT_PURCHASES,
     cutoffDate:   new Date().toISOString().slice(0, 7),
   };

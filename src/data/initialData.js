@@ -61,9 +61,16 @@ export const DEFAULT_PURCHASES = [
   { id: 29, materialId: 'algodon_negro',  month: '2026-11', qty: 14800, origin: 'asia', supplier: 'SC 9.006' },
   { id: 30, materialId: 'algodon_blanco', month: '2026-11', qty: 7400,  origin: 'asia', supplier: 'SC 9.007' },
   { id: 31, materialId: 'algodon_negro',  month: '2026-11', qty: 7400,  origin: 'asia', supplier: 'SC 9.007' },
-  // Algodón — compras Argentina
-  { id: 32, materialId: 'algodon_negro',  month: '2026-07', qty: 45000, origin: 'arg' },
-  { id: 33, materialId: 'algodon_blanco', month: '2026-08', qty: 20000, origin: 'arg' },
+  // Algodón — compras RONTALTEX (Argentina)
+  { id: 32, materialId: 'algodon_blanco', month: '2026-07', qty: 5000,  origin: 'arg', supplier: 'Rontaltex' },
+  { id: 33, materialId: 'algodon_blanco', month: '2026-09', qty: 13000, origin: 'arg', supplier: 'Rontaltex' },
+  { id: 34, materialId: 'algodon_blanco', month: '2026-10', qty: 22200, origin: 'arg', supplier: 'Rontaltex' },
+  { id: 35, materialId: 'algodon_blanco', month: '2026-11', qty: 22200, origin: 'arg', supplier: 'Rontaltex' },
+  { id: 36, materialId: 'algodon_negro',  month: '2026-07', qty: 20500, origin: 'arg', supplier: 'Rontaltex' },
+  { id: 37, materialId: 'algodon_negro',  month: '2026-08', qty: 20000, origin: 'arg', supplier: 'Rontaltex' },
+  { id: 38, materialId: 'algodon_negro',  month: '2026-09', qty: 20000, origin: 'arg', supplier: 'Rontaltex' },
+  { id: 39, materialId: 'algodon_negro',  month: '2026-10', qty: 37000, origin: 'arg', supplier: 'Rontaltex' },
+  { id: 40, materialId: 'algodon_negro',  month: '2026-11', qty: 22200, origin: 'arg', supplier: 'Rontaltex' },
 ];
 
 export const DEFAULT_CONSUMPTION = {
