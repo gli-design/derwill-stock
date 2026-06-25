@@ -51,6 +51,19 @@ export const DEFAULT_PURCHASES = [
   { id: 20, materialId: 'nylon_blanco', month: '2026-07', qty: 7000, origin: 'asia' },
   { id: 21, materialId: 'nylon_negro',  month: '2026-06', qty: 7000, origin: 'asia' },
   { id: 22, materialId: 'nylon_negro',  month: '2026-07', qty: 7000, origin: 'asia' },
+  // Algodón — nuevas OC Asia (SC 9.001–9.007, shipment + 60 días)
+  { id: 23, materialId: 'algodon_negro',  month: '2026-09', qty: 14800, origin: 'asia', supplier: 'SC 9.001' },
+  { id: 24, materialId: 'algodon_blanco', month: '2026-09', qty: 7400,  origin: 'asia', supplier: 'SC 9.002' },
+  { id: 25, materialId: 'algodon_negro',  month: '2026-09', qty: 7400,  origin: 'asia', supplier: 'SC 9.002' },
+  { id: 26, materialId: 'algodon_blanco', month: '2026-10', qty: 14800, origin: 'asia', supplier: 'SC 9.003' },
+  { id: 27, materialId: 'algodon_negro',  month: '2026-10', qty: 14800, origin: 'asia', supplier: 'SC 9.004' },
+  { id: 28, materialId: 'algodon_blanco', month: '2026-10', qty: 14800, origin: 'asia', supplier: 'SC 9.005' },
+  { id: 29, materialId: 'algodon_negro',  month: '2026-11', qty: 14800, origin: 'asia', supplier: 'SC 9.006' },
+  { id: 30, materialId: 'algodon_blanco', month: '2026-11', qty: 7400,  origin: 'asia', supplier: 'SC 9.007' },
+  { id: 31, materialId: 'algodon_negro',  month: '2026-11', qty: 7400,  origin: 'asia', supplier: 'SC 9.007' },
+  // Algodón — compras Argentina
+  { id: 32, materialId: 'algodon_negro',  month: '2026-07', qty: 45000, origin: 'arg' },
+  { id: 33, materialId: 'algodon_blanco', month: '2026-08', qty: 20000, origin: 'arg' },
 ];
 
 export const DEFAULT_CONSUMPTION = {
