@@ -1,7 +1,7 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Papa from 'papaparse';
 import * as XLSX from 'xlsx';
-import { MATERIALS } from '../data/initialData';
+import { MATERIALS, DEFAULT_PARAMS, DEFAULT_CONSUMPTION, DEFAULT_PURCHASES } from '../data/initialData';
 import { calcReorderPoints, projectStock, getStatus } from '../engine/projection';
 
 function getMonthKeys(n) {
@@ -17,6 +17,19 @@ function getMonthKeys(n) {
 
 export default function ImportExport({ state, importData }) {
   const csvRef = useRef();
+  const [confirmed, setConfirmed] = useState(false);
+
+  function resetToFactory() {
+    if (!confirmed) { setConfirmed(true); return; }
+    importData({
+      params:       DEFAULT_PARAMS,
+      consumption:  DEFAULT_CONSUMPTION,
+      stockInitial: Object.fromEntries(MATERIALS.map(m => [m.id, 0])),
+      purchases:    DEFAULT_PURCHASES,
+    });
+    setConfirmed(false);
+    alert('Datos restaurados a los valores de fábrica. El stock inicial quedó en 0 — cargalo en Parámetros.');
+  }
 
   function handleCSV(e) {
     const file = e.target.files[0];
@@ -109,6 +122,25 @@ export default function ImportExport({ state, importData }) {
             Descargar Excel
           </button>
         </div>
+      </div>
+
+      <div style={{ marginTop: 24, border: `0.5px solid ${confirmed ? '#fca5a5' : '#e5e7eb'}`, borderRadius: 10, padding: 20, background: confirmed ? '#fff5f5' : 'white' }}>
+        <h3 style={{ fontWeight: 500, fontSize: 14, marginBottom: 6, color: '#991b1b' }}>Restaurar datos de fábrica</h3>
+        <p style={{ fontSize: 12, color: '#6b7280', marginBottom: 12, lineHeight: 1.6 }}>
+          Borra todos los datos actuales (stock, compras, consumos, parámetros) y carga los valores iniciales del sistema.
+          El stock inicial quedará en 0 y habrá que cargarlo manualmente en Parámetros.
+        </p>
+        {confirmed ? (
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <span style={{ fontSize: 12, color: '#991b1b', fontWeight: 500 }}>¿Confirmar? Esta acción no se puede deshacer.</span>
+            <button onClick={resetToFactory} style={{ ...btnStyle, background: '#fee2e2', color: '#991b1b', borderColor: '#fca5a5' }}>Sí, restaurar</button>
+            <button onClick={() => setConfirmed(false)} style={btnStyle}>Cancelar</button>
+          </div>
+        ) : (
+          <button onClick={resetToFactory} style={{ ...btnStyle, background: '#fff1f2', color: '#be123c', borderColor: '#fecdd3' }}>
+            Restaurar datos de fábrica
+          </button>
+        )}
       </div>
 
       <div style={{ marginTop: 24, border: '0.5px solid #e5e7eb', borderRadius: 10, padding: 16 }}>
